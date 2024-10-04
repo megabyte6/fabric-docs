@@ -329,7 +329,7 @@ Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.getCodec();
 // E in base a quello, ecco il nostro codec di dispatch della registry per i fagioli!
 // Il primo parametro e il nome dell'attributo per il tipo di fagiolo.
 // Se lasciato vuoto, assumerà "type" come valore predefinito.
-Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::getCodec);
+Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::codec);
 ```
 
 Il nostro nuovo codec serializzerà fagioli a json così, prendendo solo attributi che sono rilevanti al loro tipo specifico:
@@ -392,7 +392,7 @@ Un `ListNode` serializzato potrebbe avere questo aspetto:
 }
 ```
 
-## Riferimenti
+## Riferimenti {#references}
 
 - Una documentazione molto più dettagliata sui Codec e sulle relative API può essere trovata presso la [JavaDoc non Ufficiale di DFU](https://kvverti.github.io/Documented-DataFixerUpper/snapshot/com/mojang/serialization/Codec).
 - La struttura generale di questa guida è fortemente ispirata dalla [pagina sui codec della Wiki della Community di Forge](https://forge.gemwire.uk/wiki/Codecs), una pagina più orientata verso Forge sullo stesso argomento.
